@@ -18,7 +18,7 @@ public class Likes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "like_id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -30,4 +30,10 @@ public class Likes {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    public Likes(Users user, Posts post, LocalDateTime createdAt) {
+        this.user = user;
+        this.post = post;
+        this.createdAt = createdAt;
+    }
 }

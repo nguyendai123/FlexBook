@@ -18,7 +18,7 @@ public class Messages {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "message_id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sender_id")
@@ -36,4 +36,13 @@ public class Messages {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+
+    public Messages(Users sender, Users receiver, String message, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.message = message;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 }

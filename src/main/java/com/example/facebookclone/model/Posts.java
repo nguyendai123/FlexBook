@@ -19,7 +19,7 @@ public class Posts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -36,4 +36,6 @@ public class Posts {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+
 }

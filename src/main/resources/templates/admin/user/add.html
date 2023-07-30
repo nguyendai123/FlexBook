@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+
+<main class="container-fluid">
+  <h2 class="text-center text-primary mb-4">Add new Product</h2>
+
+  <form class="row g-3" method="post" th:action="@{/users/}" th:object="${users}">
+    <div class="mb-3 row">
+      <label for="txtID" class="col-sm-2 col-form-label">ID</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="txtID" name="textID" th:field="*{id}">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="txtName" class="col-sm-2 col-form-label">UserName</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="txtName" name="txtName" th:field="*{username}">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="txtEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="txtEmail" name="txtEmail" th:field="*{email}">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="txtPassword" class="col-sm-2 col-form-label">PassWord</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="txtPassword" name="txtPassword" th:field="*{password}">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="txtProfilePicture" class="col-sm-2 col-form-label">ProfilePicture</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="txtProfilePicture" name="txtProfilePicture" th:field="*{profilePicture}">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="txtBio" class="col-sm-2 col-form-label">Bio</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="txtBio" name="txtBio" th:field="*{bio}">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="txtCreated_at" class="col-sm-2 col-form-label">Created_at</label>
+      <div class="col-sm-10">
+        <input type="datetime-local" class="form-control" id="txtCreated_at" name="txtCreated_at" th:field="*{createdAt}">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="txtUpdated_at" class="col-sm-2 col-form-label">Updated_at</label>
+      <div class="col-sm-10">
+        <input type="datetime-local" class="form-control" id="txtUpdated_at" name="txtUpdated_at" th:field="*{updatedAt}">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-success" id="sbmSave" name="sbmSave">Save</button>
+      </div>
+    </div>
+  </form>
+
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

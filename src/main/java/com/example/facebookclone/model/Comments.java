@@ -4,6 +4,7 @@ package com.example.facebookclone.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 
@@ -14,11 +15,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Comments {
+public class Comments  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -36,4 +38,12 @@ public class Comments {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public Comments(Users user, Posts post, String comment, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.user = user;
+        this.post = post;
+        this.comment = comment;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 }

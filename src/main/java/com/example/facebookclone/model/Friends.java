@@ -18,7 +18,7 @@ public class Friends {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "friend_id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id1")
@@ -42,10 +42,12 @@ public class Friends {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public enum FriendStatus {
-        PENDING,
-        ACCEPTED,
-        DECLINED,
-        BLOCKED
+    public Friends(Users user1, Users user2, FriendStatus status, Users actionUser, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.user1 = user1;
+        this.user2 = user2;
+        this.status = status;
+        this.actionUser = actionUser;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 }
